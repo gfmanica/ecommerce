@@ -1,3 +1,9 @@
 export default function Footer() {
-  return <div className="mt-auto">footer</div>;
+  const year = new Date().getFullYear();
+
+  return (
+    <div className="mt-auto bg-slate-200 h-12 px-12 flex items-center justify-center">
+      Gabriel Manica© {year} - Todos os direitos reservados
+    </div>
+  );
 }
