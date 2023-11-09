@@ -12,12 +12,12 @@ export default function Navbara() {
 
         <Button
           as={Link}
-          href="/categorias"
+          href="/produtos/1"
           variant="shadow"
           color="secondary"
           size="md"
         >
-          Categorias
+          Produto 1
         </Button>
       </div>
     </div>
