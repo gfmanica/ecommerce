@@ -36,8 +36,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col">
-      <div className="h-[400px] relative bg-slate-200 mx-2 mt-4 rounded-2xl">
+    <div className="flex flex-col gap-8">
+      <div className="h-[400px] min-w-full bg-slate-200 rounded-2xl">
         Ofertas
       </div>
 
