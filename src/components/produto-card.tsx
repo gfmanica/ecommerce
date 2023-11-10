@@ -1,9 +1,9 @@
-import { TProduto } from '@/types';
+import { TProduct } from '@/types';
 import { money } from '@/utils/format';
 import { Card, CardBody, Image } from '@nextui-org/react';
 import Link from 'next/link';
 type TCard = {
-  produto: TProduto;
+  produto: TProduct;
 };
 
 export default function ProdutoCard({ produto }: TCard) {

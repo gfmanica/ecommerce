@@ -1,4 +1,4 @@
-export type TProduto = {
+export type TProduct = {
   idProduto: number;
   dsProduto: string;
   dsUrl: string;

@@ -1,8 +1,12 @@
+'use client';
+
 import PageContent from '@/components/page-content';
+import { useNavbarContext } from '@/contexts/navbar-context';
 import { money } from '@/utils/format';
 import { Button, Card, Divider, Image } from '@nextui-org/react';
 
 export default function Produto() {
+  const { setProductCart } = useNavbarContext();
   const produto = {
     idProduto: 1,
     dsProduto: 'Refrigerante Fanta Uva 350Ml',
@@ -44,6 +48,7 @@ export default function Produto() {
             className="text-white font-medium	"
             color="primary"
             variant="shadow"
+            onClick={() => setProductCart(produto)}
           >
             Adicionar ao carrinho
           </Button>
