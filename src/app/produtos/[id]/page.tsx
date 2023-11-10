@@ -1,3 +1,4 @@
+import PageContent from '@/components/page-content';
 import { money } from '@/utils/format';
 import { Button, Card, Divider, Image } from '@nextui-org/react';
 
@@ -11,7 +12,7 @@ export default function Produto() {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4 max-w-[1400px] ">
+    <PageContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="flex justify-center">
         <Image
           alt="Produto"
@@ -64,6 +65,6 @@ export default function Produto() {
           </Card>
         </div>
       </div>
-    </div>
+    </PageContent>
   );
 }
