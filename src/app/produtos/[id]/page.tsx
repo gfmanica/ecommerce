@@ -41,7 +41,7 @@ export default function Produto() {
 
           <Button
             className="text-white font-medium	"
-            color="success"
+            color="primary"
             variant="shadow"
           >
             Adicionar ao carrinho
