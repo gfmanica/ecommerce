@@ -36,7 +36,7 @@ export default function Navbar() {
           showArrow
           isOpen={Boolean(productCart)}
           content={
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center p-1">
               <Image
                 alt="Produto"
                 width={50}
