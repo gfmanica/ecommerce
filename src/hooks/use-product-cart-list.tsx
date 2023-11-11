@@ -11,7 +11,16 @@ export default function useProductCartList() {
   };
 
   const setNewProductCart = (product: TProductCart) => {
-    const productCartList = getProductCartList();
+    let productCartList = getProductCartList();
+    const productExistInList = productCartList.some(
+      (item) => item.idProduct === product.idProduct,
+    );
+
+    if (productExistInList) {
+      productCartList = productCartList.filter(
+        (item) => item.idProduct !== product.idProduct,
+      );
+    }
 
     productCartList.push(product);
 
@@ -20,7 +29,19 @@ export default function useProductCartList() {
     setProductCartList(productCartList);
   };
 
+  const removeProductCart = (product: TProduct) => {
+    const productCartList = getProductCartList();
+    const newProductCartList = productCartList.filter(
+      (item) => item.idProduct !== product.idProduct,
+    );
+
+    localStorage.setItem('productCartList', JSON.stringify(newProductCartList));
+
+    setProductCartList(newProductCartList);
+  };
+
   useEffect(() => setProductCartList(getProductCartList), []);
 
-  return { productCartList, setNewProductCart };
+
+  return { productCartList, setNewProductCart, removeProductCart };
 }

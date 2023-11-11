@@ -2,36 +2,22 @@
 
 import AddCartButton from '@/components/buttons/add-cart-button';
 import PageContent from '@/components/page-content';
-import { useNavbarContext } from '@/contexts/navbar-context';
+import ProductCounter from '@/components/product-counter';
 import { TProduct } from '@/types';
 import { money } from '@/utils/format';
+import { productList } from '@/utils/produtos';
 import { Button, Card, Divider, Image, Input } from '@nextui-org/react';
-import { useState } from 'react';
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
+import { useRef, useState } from 'react';
 
-export default function Produto() {
+type TProduto = {
+  params: {
+    id: string;
+  };
+};
+
+export default function Produto({ params }: TProduto) {
   const [qtProduct, setQtProduct] = useState<string>('0');
-  const [product, setProduct] = useState<TProduct>({
-    idProduct: 1,
-    dsProduct: 'Refrigerante Fanta Uva 350Ml',
-    dsBrand: 'Coca-Cola',
-    dsUrl: '/fanta.jpg',
-    vlPrice: 2,
-    qtStock: 20,
-  });
-
-  const modifyQtProduct = (type: 'remove' | 'add') =>
-    setQtProduct((oldQtProduct) => {
-      let newQtProduct = Number(oldQtProduct);
-
-      if (type === 'remove' && newQtProduct) {
-        newQtProduct--;
-      } else if (type === 'add' && newQtProduct < product.qtStock) {
-        newQtProduct++;
-      }
-
-      return newQtProduct.toString();
-    });
+  const { current: product } = useRef(productList[Number(params.id)]);
 
   return (
     <PageContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -56,49 +42,11 @@ export default function Produto() {
           <div className="flex items-center justify-between gap-4">
             <p className="text-4xl ">{money(product.vlPrice)}</p>
 
-            <div>
-              <p className="text-xs">Quantidade</p>
-
-              <div className="flex gap-1 justify-end items-center">
-                <Button
-                  color="primary"
-                  variant="ghost"
-                  isIconOnly
-                  onClick={() => modifyQtProduct('remove')}
-                >
-                  <AiOutlineMinus />
-                </Button>
-
-                <Input
-                  className="w-14"
-                  variant="faded"
-                  size="sm"
-                  value={qtProduct}
-                  onValueChange={(value) => {
-                    let newValue = value.replace(/\D/g, '').replace(/^0+/, '');
-
-                    if (!value) {
-                      newValue = '0';
-                    }
-
-                    if (Number(newValue) > product.qtStock) {
-                      newValue = product.qtStock.toString();
-                    }
-
-                    setQtProduct(newValue);
-                  }}
-                />
-
-                <Button
-                  color="primary"
-                  variant="ghost"
-                  isIconOnly
-                  onClick={() => modifyQtProduct('add')}
-                >
-                  <AiOutlinePlus />
-                </Button>
-              </div>
-            </div>
+            <ProductCounter
+              qtProduct={qtProduct}
+              setQtProduct={setQtProduct}
+              product={product}
+            />
           </div>
 
           <Button

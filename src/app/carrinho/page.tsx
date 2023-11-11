@@ -1,6 +1,7 @@
 'use client';
+
 import PageContent from '@/components/page-content';
-import ProdutoCard from '@/components/produto-card';
+import ProductCartCard from '@/components/cards/product-cart-card';
 import useProductCartList from '@/hooks/use-product-cart-list';
 
 export default function Carrinho() {
@@ -8,10 +9,10 @@ export default function Carrinho() {
 
   return (
     <PageContent>
-      <div className="flex-[9] grid xl:grid-cols-3 grid-cols-2 gap-4 lg:gap-8 ">
+      <div className="flex flex-col gap-4 ">
         {productCartList.map((item) => (
           <div className="flex justify-center">
-            <ProdutoCard key={item.idProduct} produto={item} />
+            <ProductCartCard key={item.idProduct} product={item} />
           </div>
         ))}
       </div>

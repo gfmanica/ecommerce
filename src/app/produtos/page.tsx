@@ -1,7 +1,7 @@
 'use client';
 import { Card, CardBody, Slider } from '@nextui-org/react';
 import { productList } from '@/utils/produtos';
-import ProdutoCard from '@/components/produto-card';
+import ProductCard from '@/components/cards/product-card';
 import PageContent from '@/components/page-content';
 import useBreakpoint from '@/hooks/use-breakpoint';
 
@@ -49,7 +49,7 @@ export default function Produtos() {
       <div className="flex-[9] grid xl:grid-cols-3 grid-cols-2 gap-4 lg:gap-8 ">
         {productList.map((item) => (
           <div className="flex justify-center">
-            <ProdutoCard key={item.idProduct} produto={item} />
+            <ProductCard key={item.idProduct} product={item} />
           </div>
         ))}
       </div>
