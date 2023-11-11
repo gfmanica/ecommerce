@@ -1,47 +1,57 @@
-import { TProduct, TProductCart } from '@/types';
 import { useEffect, useState } from 'react';
+import { TProduct, TProductCart } from '@/types';
 
 export default function useProductCartList() {
-  const [productCartList, setProductCartList] = useState<TProductCart[]>([]);
-
   const getProductCartList = (): TProductCart[] => {
-    const storedValue = localStorage.getItem('productCartList');
-
+    const storedValue =
+      typeof window !== 'undefined' && localStorage.getItem('productCartList');
     return storedValue ? JSON.parse(storedValue) : [];
   };
 
+  const [productCartList, setProductCartList] = useState<TProductCart[]>(
+    getProductCartList(),
+  );
+
   const setNewProductCart = (product: TProductCart) => {
-    let productCartList = getProductCartList();
-    const productExistInList = productCartList.some(
-      (item) => item.idProduct === product.idProduct,
-    );
-
-    if (productExistInList) {
-      productCartList = productCartList.filter(
-        (item) => item.idProduct !== product.idProduct,
+    setProductCartList((prevProductCartList) => {
+      const newProductCartList = [...prevProductCartList];
+      const productExistInList = newProductCartList.some(
+        (item) => item.idProduct === product.idProduct,
       );
-    }
 
-    productCartList.push(product);
+      if (productExistInList) {
+        return newProductCartList.filter(
+          (item) => item.idProduct !== product.idProduct,
+        );
+      }
 
-    localStorage.setItem('productCartList', JSON.stringify(productCartList));
-
-    setProductCartList(productCartList);
+      newProductCartList.push(product);
+      localStorage.setItem(
+        'productCartList',
+        JSON.stringify(newProductCartList),
+      );
+      return newProductCartList;
+    });
   };
 
   const removeProductCart = (product: TProduct) => {
-    const productCartList = getProductCartList();
-    const newProductCartList = productCartList.filter(
-      (item) => item.idProduct !== product.idProduct,
-    );
+    setProductCartList((prevProductCartList) => {
+      const newProductCartList = prevProductCartList.filter(
+        (item) => item.idProduct !== product.idProduct,
+      );
 
-    localStorage.setItem('productCartList', JSON.stringify(newProductCartList));
-
-    setProductCartList(newProductCartList);
+      localStorage.setItem(
+        'productCartList',
+        JSON.stringify(newProductCartList),
+      );
+      return newProductCartList;
+    });
   };
 
-  useEffect(() => setProductCartList(getProductCartList), []);
-
-
-  return { productCartList, setNewProductCart, removeProductCart };
+  return {
+    productCartList,
+    setNewProductCart,
+    removeProductCart,
+    getProductCartList,
+  };
 }
