@@ -1,6 +1,12 @@
 export type TProduct = {
-  idProduto: number;
-  dsProduto: string;
+  idProduct: number;
+  dsProduct: string;
   dsUrl: string;
-  vlPreco: number;
+  vlPrice: number;
+  dsBrand?: string;
+  qtStock: number;
+};
+
+export type TProductCart = TProduct & {
+  qtProduct: number;
 };

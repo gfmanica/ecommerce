@@ -12,7 +12,7 @@ export default function ProdutoCard({ produto }: TCard) {
       shadow="sm"
       className="w-full hover:shadow-xl "
       as={Link}
-      href={`/produtos/${produto.idProduto}`}
+      href={`/produtos/${produto.idProduct}`}
     >
       <CardBody className="flex flex-col p-4">
         <Image
@@ -21,9 +21,9 @@ export default function ProdutoCard({ produto }: TCard) {
           src={produto.dsUrl}
           width="100%"
         />
-        <p className="text-2xl">{produto.dsProduto}</p>
+        <p className="text-2xl">{produto.dsProduct}</p>
         <p className="text-primary-400 font-semibold">
-          {money(produto.vlPreco)}
+          {money(produto.vlPrice)}
         </p>
       </CardBody>
     </Card>

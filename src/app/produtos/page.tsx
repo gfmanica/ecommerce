@@ -49,7 +49,7 @@ export default function Produtos() {
       <div className="flex-[9] grid xl:grid-cols-3 grid-cols-2 gap-4 lg:gap-8 ">
         {productList.map((item) => (
           <div className="flex justify-center">
-            <ProdutoCard key={item.idProduto} produto={item} />
+            <ProdutoCard key={item.idProduct} produto={item} />
           </div>
         ))}
       </div>

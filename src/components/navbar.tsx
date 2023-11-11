@@ -45,7 +45,7 @@ export default function Navbar() {
               />
               <div className="max-w-[150px]">
                 <p>
-                  <strong>{productCart?.dsProduto}</strong> adicionado ao
+                  <strong>{productCart?.dsProduct}</strong> adicionado ao
                   carrinho!
                 </p>
               </div>
