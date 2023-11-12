@@ -17,7 +17,7 @@ type TProduto = {
 
 export default function Produto({ params }: TProduto) {
   const [qtProduct, setQtProduct] = useState<string>('0');
-  const { current: product } = useRef(productList[Number(params.id)]);
+  const { current: product } = useRef(productList[Number(params.id) - 1]);
 
   return (
     <PageContent className="grid grid-cols-1 md:grid-cols-2 gap-4">

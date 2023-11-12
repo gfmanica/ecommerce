@@ -13,6 +13,7 @@ export default function Home() {
         height={400}
         className="max-h-[400px] rounded-none"
       />
+      
       <PageContent >
         <h1 className="font-semibold text-xl lg:text-2xl mb-4">
           Produtos em destaque
