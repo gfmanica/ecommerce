@@ -16,16 +16,16 @@ export default function Carrinho() {
   );
 
   return (
-    <PageContent className="flex items-start gap-4">
+    <PageContent className="flex flex-col-reverse md:flex-row items-start  gap-4">
       {Boolean(productCartList.length) ? (
         <>
-          <div className="flex flex-col gap-4 flex-[9]">
+          <div className="flex w-full  flex-col gap-4 flex-[9]">
             {productCartList.map((item) => (
               <ProductCartCard key={item.idProduct} product={item} />
             ))}
           </div>
 
-          <Card className="flex-[3] p-2 sticky top-2">
+          <Card className="w-full flex-[3] p-2 sticky top-2">
             <CardBody className="flex flex-col gap-2">
               <p className="text-2xl ">
                 Subtotal:{' '}
