@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardBody,
+  Checkbox,
   Image,
   Modal,
   ModalBody,
@@ -65,10 +66,11 @@ export default function ProductCartCard({ product }: TProductCartCard) {
       <Card shadow="sm" className="w-full">
         <CardBody>
           <div className="flex justify-between">
-            <div className="flex gap-4 ">
+            <div className="flex ">
+              <Checkbox  className="mx-1"></Checkbox>
               <Image alt="Album cover" width={50} src={product.dsUrl} />
 
-              <div>
+              <div className="ml-4">
                 <p className="text-lg">{product.dsProduct}</p>
 
                 <p className="text-primary-400 font-semibold">
