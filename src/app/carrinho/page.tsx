@@ -2,18 +2,14 @@
 import PageContent from '@/components/page-content';
 import ProductCartCard from '@/components/cards/product-cart-card';
 import useProductCartList from '@/hooks/use-product-cart-list';
-import { Button, Card, CardBody } from '@nextui-org/react';
-import { money } from '@/utils/format';
 import { useState } from 'react';
+import FinishCartCard from '@/components/cards/finish-cart-card';
 
 export default function Carrinho() {
   const { productCartList } = useProductCartList();
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
 
-  const totalProductList = productCartList.reduce(
-    (acc, cur) => acc + cur.vlPrice * cur.qtProduct,
-    0,
-  );
+  console.log(selectedProducts);
 
   return (
     <PageContent className="flex flex-col-reverse md:flex-row items-start  gap-4">
@@ -21,25 +17,15 @@ export default function Carrinho() {
         <>
           <div className="flex w-full  flex-col gap-4 flex-[9]">
             {productCartList.map((item) => (
-              <ProductCartCard key={item.idProduct} product={item} />
+              <ProductCartCard
+                key={item.idProduct}
+                product={item}
+                setSelectedProducts={setSelectedProducts}
+              />
             ))}
           </div>
 
-          <Card className="w-full flex-[3] p-2 sticky top-2">
-            <CardBody className="flex flex-col gap-2">
-              <p className="text-2xl ">
-                Subtotal:{' '}
-                <span className="font-semibold">{money(totalProductList)}</span>
-              </p>
-              <Button
-                variant="shadow"
-                color="success"
-                className=" text-white font-medium"
-              >
-                Finalizar pedido
-              </Button>
-            </CardBody>
-          </Card>
+          <FinishCartCard selectedProducts={selectedProducts} />
         </>
       ) : (
         <div className="flex w-full justify-center">

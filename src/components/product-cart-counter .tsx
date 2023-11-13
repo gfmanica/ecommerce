@@ -24,7 +24,6 @@ export default function ProductCartCounter({
       newQtProduct++;
     }
 
-    debugger;
     changeQtProductCart({ product, qtProduct: newQtProduct });
   };
 

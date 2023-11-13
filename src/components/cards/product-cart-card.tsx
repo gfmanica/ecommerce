@@ -6,78 +6,84 @@ import {
   CardBody,
   Checkbox,
   Image,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
   Tooltip,
   useDisclosure,
 } from '@nextui-org/react';
-import Link from 'next/link';
-import { useState } from 'react';
-import ProductCounter from '../product-counter';
 import { AiOutlineDelete } from 'react-icons/ai';
-import useProductCartList from '@/hooks/use-product-cart-list';
 import ProductCartCounter from '../product-cart-counter ';
+import ConfirmExcludeModal from '../modals/confirm-exclude-modal';
+import { Dispatch, SetStateAction } from 'react';
 
 type TProductCartCard = {
   product: TProductCart;
+  setSelectedProducts: Dispatch<SetStateAction<number[]>>;
 };
 
-export default function ProductCartCard({ product }: TProductCartCard) {
-  const { removeProductCart } = useProductCartList();
+export default function ProductCartCard({
+  product,
+  setSelectedProducts,
+}: TProductCartCard) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const onPressConfirm = () => {
-    removeProductCart(product);
-
-    onClose();
-  };
 
   return (
     <>
-      <Modal backdrop="opaque" isOpen={isOpen} onClose={onClose}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader>Confirmação</ModalHeader>
-              <ModalBody>
-                <p>
-                  Tem deseja que deseja excluir o produto{' '}
-                  <strong>{product.dsProduct}</strong> do carrinho?
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Fechar
-                </Button>
-                <Button color="primary" onPress={onPressConfirm}>
-                  Excluir
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+      <ConfirmExcludeModal
+        product={product}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
 
       <Card shadow="sm" className="w-full">
         <CardBody>
-          <div className="flex justify-between">
-            <div className="flex ">
-              <Checkbox  className="mx-1"></Checkbox>
-              <Image alt="Album cover" width={50} src={product.dsUrl} />
+          <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+              <div className="flex w-full md:w-auto ">
+                <Checkbox
+                  className="mx-1"
+                  onValueChange={(isSelected) =>
+                    setSelectedProducts((oldSelectedProducts) => {
+                      let newSelectedProducts = [...oldSelectedProducts];
 
-              <div className="ml-4">
-                <p className="text-lg">{product.dsProduct}</p>
+                      if (isSelected) {
+                        newSelectedProducts.push(product.idProduct);
+                      } else {
+                        newSelectedProducts = newSelectedProducts.filter(
+                          (item) => item !== product.idProduct,
+                        );
+                      }
 
-                <p className="text-primary-400 font-semibold">
-                  {money(product.vlPrice)}
+                      return newSelectedProducts;
+                    })
+                  }
+                />
+
+                <div className="flex flex-1 md:flex-none gap-4 flex-row-reverse md:flex-row">
+                  <Image alt="Album cover" width={50} src={product.dsUrl} />
+
+                  <div className="flex items-center w-36 break-words mr-auto">
+                    <p className="text-lg">{product.dsProduct}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <p>
+                  Valor unitário:{' '}
+                  <span className="text-primary-400 font-semibold">
+                    {money(product.vlPrice)}
+                  </span>
+                </p>
+
+                <p>
+                  Valor total:{' '}
+                  <span className="text-success-400 font-semibold">
+                    {money(product.vlPrice * product.qtProduct)}
+                  </span>
                 </p>
               </div>
             </div>
 
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center justify-between">
               <ProductCartCounter
                 qtProduct={product.qtProduct.toString()}
                 product={product}
