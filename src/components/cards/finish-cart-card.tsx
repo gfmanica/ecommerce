@@ -15,7 +15,7 @@ export default function FinishCartCard({ selectedProducts }: TFinishCartCard) {
   );
 
   return (
-    <Card className="w-full flex-[3] p-2 sticky top-2 ">
+    <Card className="w-full flex-[3] p-2 sticky top-2 z-50">
       <CardBody className="flex flex-col gap-2">
         <p className="text-2xl ">
           Subtotal:{' '}
