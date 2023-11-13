@@ -11,10 +11,10 @@ export default function Home() {
         alt="banner"
         width="100%"
         height={400}
-        className="max-h-[400px] rounded-none"
+        className="max-h-[400px] rounded-none mt-4 md:mt-0"
       />
-      
-      <PageContent >
+
+      <PageContent>
         <h1 className="font-semibold text-xl lg:text-2xl mb-4">
           Produtos em destaque
         </h1>

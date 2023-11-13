@@ -11,7 +11,7 @@ export default function Navbar() {
   const { productCart } = useNavbarContext();
 
   return (
-    <div className="bg-slate-200 flex items-center rounded-2xl mt-2 mb-8 mx-2 px-12 py-3 justify-between shadow-md">
+    <div className="bg-slate-200 flex items-center rounded-2xl mt-2 md:mb-8 mx-2 px-12 py-3 justify-between shadow-md">
       <Link href="/">
         <p className="font-semibold text-lg">Ecommerce</p>
       </Link>

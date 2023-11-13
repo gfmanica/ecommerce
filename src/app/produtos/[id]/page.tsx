@@ -27,7 +27,7 @@ export default function Produto({ params }: TProduto) {
           height={200}
           src={product.dsUrl}
           width="500"
-          className="sticky top-1"
+          className="sticky md:static top-1"
         />
       </div>
 
