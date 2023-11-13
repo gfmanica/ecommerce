@@ -31,11 +31,11 @@ export default function FinishCartCard({ selectedProducts }: TFinishCartCard) {
         </Button>
 
         {Boolean(selectedProducts.length) && (
-          <div className="flex gap-2">
+          <>
             <Button
               variant="shadow"
               color="primary"
-              className=" text-white font-medium  flex-1 whitespace-normal py-6"
+              className=" text-white font-medium "
             >
               Finalizar selecionado(s)
             </Button>
@@ -43,11 +43,11 @@ export default function FinishCartCard({ selectedProducts }: TFinishCartCard) {
             <Button
               variant="shadow"
               color="danger"
-              className=" text-white font-medium flex-1 whitespace-normal py-6"
+              className=" text-white font-medium"
             >
               Excluir selecionado(s)
             </Button>
-          </div>
+          </>
         )}
       </CardBody>
     </Card>
