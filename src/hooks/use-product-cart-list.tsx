@@ -16,7 +16,6 @@ export default function useProductCartList() {
         (item) => item.idProduct === product.idProduct,
       );
 
-      debugger;
       if (productExistInList) {
         newProductCartList = newProductCartList.filter(
           (item) => item.idProduct !== product.idProduct,
@@ -37,9 +36,28 @@ export default function useProductCartList() {
     );
   };
 
+  const changeQtProductCart = ({
+    product,
+    qtProduct,
+  }: {
+    product: TProduct;
+    qtProduct: number;
+  }) => {
+    setProductCartList((oldProductCartList) =>
+      oldProductCartList.map((item) => {
+        if (item.idProduct === product.idProduct) {
+          item.qtProduct = qtProduct;
+        }
+
+        return item;
+      }),
+    );
+  };
+
   return {
     productCartList,
     setNewProductCart,
     removeProductCart,
+    changeQtProductCart,
   };
 }

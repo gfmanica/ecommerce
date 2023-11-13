@@ -19,6 +19,7 @@ import { useState } from 'react';
 import ProductCounter from '../product-counter';
 import { AiOutlineDelete } from 'react-icons/ai';
 import useProductCartList from '@/hooks/use-product-cart-list';
+import ProductCartCounter from '../product-cart-counter ';
 
 type TProductCartCard = {
   product: TProductCart;
@@ -27,9 +28,6 @@ type TProductCartCard = {
 export default function ProductCartCard({ product }: TProductCartCard) {
   const { removeProductCart } = useProductCartList();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [qtProduct, setQtProduct] = useState<string>(
-    product.qtProduct.toString(),
-  );
 
   const onPressConfirm = () => {
     removeProductCart(product);
@@ -80,9 +78,8 @@ export default function ProductCartCard({ product }: TProductCartCard) {
             </div>
 
             <div className="flex gap-4 items-center">
-              <ProductCounter
-                qtProduct={qtProduct}
-                setQtProduct={setQtProduct}
+              <ProductCartCounter
+                qtProduct={product.qtProduct.toString()}
                 product={product}
               />
 

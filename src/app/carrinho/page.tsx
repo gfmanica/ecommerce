@@ -11,7 +11,7 @@ export default function Carrinho() {
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
 
   const totalProductList = productCartList.reduce(
-    (acc, cur) => acc + cur.vlPrice,
+    (acc, cur) => acc + cur.vlPrice * cur.qtProduct,
     0,
   );
 
