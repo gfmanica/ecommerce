@@ -9,22 +9,33 @@ import {
   ModalHeader,
   useDisclosure,
 } from '@nextui-org/react';
+import { Dispatch, SetStateAction } from 'react';
 
 type TConfirmExcludeModal = {
-  product: TProductCart;
+  product?: TProductCart;
   isOpen: boolean;
   onClose: () => void;
+  selectedProducts?: number[];
+  setSelectedProducts?: Dispatch<SetStateAction<number[]>>;
 };
 
 export default function ConfirmExcludeModal({
+  selectedProducts,
+  setSelectedProducts,
   product,
   isOpen,
   onClose,
 }: TConfirmExcludeModal) {
-  const { removeProductCart } = useProductCartList();
+  const { removeProductCart, removeProductsCartById } = useProductCartList();
 
   const onPressConfirm = () => {
-    removeProductCart(product);
+    if (product) {
+      removeProductCart(product);
+    } else if (selectedProducts?.length && setSelectedProducts) {
+      removeProductsCartById(selectedProducts);
+
+      setSelectedProducts([]);
+    }
 
     onClose();
   };
@@ -36,10 +47,20 @@ export default function ConfirmExcludeModal({
           <>
             <ModalHeader>Confirmação</ModalHeader>
             <ModalBody>
-              <p>
-                Tem deseja que deseja excluir o produto{' '}
-                <strong>{product.dsProduct}</strong> do carrinho?
-              </p>
+              {product ? (
+                <p>
+                  Tem deseja que deseja excluir o produto{' '}
+                  <strong>{product.dsProduct}</strong> do carrinho?
+                </p>
+              ) : (
+                Boolean(selectedProducts?.length) && (
+                  <p>
+                    Tem deseja que deseja excluir{' '}
+                    <strong>{selectedProducts?.length} produto(s)</strong> do
+                    carrinho?
+                  </p>
+                )
+              )}
             </ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>

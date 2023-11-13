@@ -9,7 +9,6 @@ export default function Carrinho() {
   const { productCartList } = useProductCartList();
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
 
-  console.log(selectedProducts);
 
   return (
     <PageContent className="flex flex-col-reverse md:flex-row items-start  gap-4">
@@ -25,7 +24,10 @@ export default function Carrinho() {
             ))}
           </div>
 
-          <FinishCartCard selectedProducts={selectedProducts} />
+          <FinishCartCard
+            selectedProducts={selectedProducts}
+            setSelectedProducts={setSelectedProducts}
+          />
         </>
       ) : (
         <div className="flex w-full justify-center">

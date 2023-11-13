@@ -36,6 +36,12 @@ export default function useProductCartList() {
     );
   };
 
+  const removeProductsCartById = (idList: number[]) => {
+    setProductCartList((prevProductCartList) =>
+      prevProductCartList.filter((item) => !idList.includes(item.idProduct)),
+    );
+  };
+
   const changeQtProductCart = ({
     product,
     qtProduct,
@@ -59,5 +65,6 @@ export default function useProductCartList() {
     setNewProductCart,
     removeProductCart,
     changeQtProductCart,
+    removeProductsCartById,
   };
 }
