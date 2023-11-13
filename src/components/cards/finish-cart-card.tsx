@@ -1,6 +1,7 @@
 import useProductCartList from '@/hooks/use-product-cart-list';
 import { money } from '@/utils/format';
 import { Button, Card, CardBody, useDisclosure } from '@nextui-org/react';
+import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
 import ConfirmExcludeModal from '../modals/confirm-exclude-modal';
 
@@ -41,6 +42,8 @@ export default function FinishCartCard({
             variant="shadow"
             color="success"
             className=" text-white font-medium"
+            as={Link}
+            href="/finalizar"
           >
             Finalizar pedido
           </Button>
@@ -51,6 +54,8 @@ export default function FinishCartCard({
                 variant="shadow"
                 color="primary"
                 className=" text-white font-medium "
+                as={Link}
+                href="/finalizar"
               >
                 Finalizar selecionado(s)
               </Button>

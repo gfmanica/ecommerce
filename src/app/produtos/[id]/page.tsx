@@ -7,6 +7,7 @@ import { TProduct } from '@/types';
 import { money } from '@/utils/format';
 import { productList } from '@/utils/produtos';
 import { Button, Card, Divider, Image, Input } from '@nextui-org/react';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 type TProduto = {
@@ -53,6 +54,8 @@ export default function Produto({ params }: TProduto) {
             className=" text-white font-medium"
             color="success"
             variant="shadow"
+            as={Link}
+            href="/finalizar"
           >
             Comprar agora
           </Button>
