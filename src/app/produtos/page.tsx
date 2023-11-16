@@ -45,10 +45,21 @@ export default function Produtos({
   const [filteredProductList, setFilteredProductList] = useState<TProduct[]>(
     [],
   );
-  const { isDownMd } = useBreakpoint();
+
+  console.log(searchParams);
 
   useEffect(() => {
     let newFilteredProductList = productList;
+
+    if (searchParams?.search) {
+      newFilteredProductList = newFilteredProductList.filter(
+        (item) =>
+          searchParams?.search &&
+          item.dsProduct
+            .toLowerCase()
+            .includes(searchParams?.search.toLowerCase()),
+      );
+    }
 
     if (Array.isArray(price)) {
       newFilteredProductList = newFilteredProductList.filter(
@@ -75,7 +86,7 @@ export default function Produtos({
     }
 
     setFilteredProductList(newFilteredProductList);
-  }, [price, countries, brands, categories]);
+  }, [price, countries, brands, categories, searchParams?.search]);
 
   return (
     <PageContent className="flex flex-col md:flex-row items-start px-2 mb-8 gap-4 ">
