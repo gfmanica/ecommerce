@@ -3,6 +3,8 @@
 import AddCartButton from '@/components/buttons/add-cart-button';
 import PageContent from '@/components/page-content';
 import ProductCounter from '@/components/product-counter';
+import useProductCartList from '@/hooks/use-product-cart-list';
+import useProductFinishList from '@/hooks/use-product-finish-list';
 import { TProduct } from '@/types';
 import { money } from '@/utils/format';
 import { productList } from '@/utils/produtos';
@@ -17,6 +19,7 @@ type TProduto = {
 };
 
 export default function Produto({ params }: TProduto) {
+  const { setNewProductFinish } = useProductFinishList();
   const [qtProduct, setQtProduct] = useState<string>('0');
   const { current: product } = useRef(productList[Number(params.id) - 1]);
 
@@ -56,6 +59,12 @@ export default function Produto({ params }: TProduto) {
             variant="shadow"
             as={Link}
             href="/finalizar"
+            onClick={() => {
+              setNewProductFinish({
+                ...product,
+                qtProduct: Number(qtProduct) || 1,
+              });
+            }}
           >
             Comprar agora
           </Button>

@@ -10,7 +10,7 @@ export default function useProductFinishList() {
     TProductCart[]
   >('productFinishList', []);
 
-  const setNewProductFinishList = (idList: number[]) => {
+  const setNewProductFinishListByIdList = (idList: number[]) => {
     const newProductFinishList: TProductCart[] = [];
 
     idList.forEach((item) => {
@@ -26,10 +26,15 @@ export default function useProductFinishList() {
     setProductFinishList(newProductFinishList);
   };
 
-  console.log(productFinishList);
+  const setNewProductFinish = (product: TProductCart) =>
+    setProductFinishList([product]);
+
+  const removeAllProductFinishList = () => setProductFinishList([]);
 
   return {
     productFinishList,
-    setNewProductFinishList,
+    setNewProductFinishListByIdList,
+    setNewProductFinish,
+    removeAllProductFinishList,
   };
 }

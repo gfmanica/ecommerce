@@ -13,7 +13,7 @@ export default function FinishInfoCard() {
   );
 
   return (
-    <Card className="w-full  top-2 md:sticky flex-[3] p-2">
+    <Card className="w-full top-2 md:sticky flex-[3] p-2">
       <CardBody className='flex flex-col gap-1'>
         <p className="text-2xl font-semibold">Resumo da compra</p>
 

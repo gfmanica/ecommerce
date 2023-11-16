@@ -23,10 +23,9 @@ export default function FinishCartCard({
   selectedProducts,
   setSelectedProducts,
 }: TFinishCartCard) {
-  const { setNewProductFinishList } = useProductFinishList();
+  const { setNewProductFinishListByIdList } = useProductFinishList();
   const { productCartList } = useProductCartList();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const getS = selectedProducts.length > 1 ? 's' : '';
 
   const totalProductList = productCartList.reduce(
     (acc, cur) => acc + cur.vlPrice * cur.qtProduct,
@@ -64,7 +63,7 @@ export default function FinishCartCard({
             as={Link}
             href="/finalizar"
             onClick={() =>
-              setNewProductFinishList(
+              setNewProductFinishListByIdList(
                 selectedProducts.length
                   ? selectedProducts
                   : productCartList.map((item) => item.idProduct),
@@ -77,8 +76,9 @@ export default function FinishCartCard({
           {Boolean(selectedProducts.length) && (
             <>
               <Divider className="my-2" />
+              
               <p className="text-xl ">
-                Produto{getS} selecionado{getS}
+                Produtos selecionados
               </p>
 
               <p className="text-lg ">
@@ -96,7 +96,7 @@ export default function FinishCartCard({
                   as={Link}
                   href="/finalizar"
                 >
-                  Finalizar produto{getS}
+                  Finalizar produtos
                 </Button>
 
                 <Tooltip content="Excluir produtos" placement="bottom">

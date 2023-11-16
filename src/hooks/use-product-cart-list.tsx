@@ -60,11 +60,14 @@ export default function useProductCartList() {
     );
   };
 
+  const removeAllProductCartList = () => setProductCartList([]);
+
   return {
     productCartList,
     setNewProductCart,
     removeProductCart,
     changeQtProductCart,
     removeProductsCartById,
+    removeAllProductCartList,
   };
 }

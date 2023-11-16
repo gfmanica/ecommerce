@@ -10,7 +10,7 @@ export default function Carrinho() {
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
 
   return (
-    <PageContent className="flex flex-col-reverse md:flex-row items-start  gap-4">
+    <PageContent className="flex flex-col-reverse md:flex-row items-start  gap-4 ">
       {Boolean(productCartList.length) ? (
         <>
           <div className="flex w-full  flex-col gap-4 flex-[9]">
