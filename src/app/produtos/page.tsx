@@ -46,8 +46,6 @@ export default function Produtos({
     [],
   );
 
-  console.log(searchParams);
-
   useEffect(() => {
     let newFilteredProductList = productList;
 

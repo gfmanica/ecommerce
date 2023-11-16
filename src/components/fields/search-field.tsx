@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/utils/cn';
 import { Button, Input, Tooltip } from '@nextui-org/react';
 import { useRouter, useSearchParams } from 'next/navigation';
