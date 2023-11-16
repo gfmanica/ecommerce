@@ -7,6 +7,7 @@ import useBreakpoint from '@/hooks/use-breakpoint';
 
 export default function Produtos() {
   const { isDownMd } = useBreakpoint();
+  
   return (
     <PageContent className="flex items-start px-2 mb-8 gap-4 ">
       {!isDownMd && (

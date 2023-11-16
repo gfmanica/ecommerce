@@ -41,7 +41,6 @@ export default function Navbar() {
                 alt="Produto"
                 width={50}
                 src={productCart?.dsUrl}
-                className="sticky top-1"
               />
               <div className="max-w-[150px]">
                 <p>
