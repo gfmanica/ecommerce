@@ -4,11 +4,14 @@ import { useNavbarContext } from '@/contexts/navbar-context';
 import useBreakpoint from '@/hooks/use-breakpoint';
 import { Button, Divider, Image, Input, Tooltip } from '@nextui-org/react';
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 export default function Navbar() {
   const { isDownMd } = useBreakpoint();
   const { productCart } = useNavbarContext();
+  const { push } = useRouter();
+  const searchParams = useSearchParams();
 
   return (
     <div className="bg-slate-200 flex items-center rounded-2xl mt-2 md:mb-8 mx-2 px-12 py-3 justify-between shadow-md">
@@ -18,7 +21,25 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         {!isDownMd && (
           <div className="flex gap-4">
-            <Input size="sm" label="Pesquisar" className="w-80" />
+            <Input
+              size="sm"
+              label="Pesquisar"
+              className="w-80"
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  const params = new URLSearchParams(searchParams);
+
+                  params.set(
+                    'search',
+                    (event.target as HTMLInputElement).value,
+                  );
+
+                  debugger;
+                  push(`/produtos?${params.toString()}`);
+                }
+              }}
+            />
+
             <Divider orientation="vertical" className="h-auto" />
           </div>
         )}

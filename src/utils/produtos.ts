@@ -5,7 +5,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.5,
     qtStock: 50,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 2,
@@ -13,7 +21,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.2,
     qtStock: 65,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 3,
@@ -21,7 +37,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.8,
     qtStock: 40,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 4,
@@ -29,7 +53,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 5.1,
     qtStock: 55,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 5,
@@ -37,7 +69,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.3,
     qtStock: 60,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 6,
@@ -45,7 +85,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 6.7,
     qtStock: 45,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 7,
@@ -53,7 +101,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.5,
     qtStock: 30,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 8,
@@ -61,7 +117,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.9,
     qtStock: 70,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 9,
@@ -69,7 +133,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 5.5,
     qtStock: 50,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 10,
@@ -77,7 +149,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.1,
     qtStock: 60,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 11,
@@ -85,7 +165,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 6.0,
     qtStock: 35,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 12,
@@ -93,7 +181,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.8,
     qtStock: 55,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 13,
@@ -101,7 +197,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.7,
     qtStock: 40,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 14,
@@ -109,7 +213,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 5.2,
     qtStock: 65,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 15,
@@ -117,7 +229,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.5,
     qtStock: 50,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 16,
@@ -125,7 +245,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.9,
     qtStock: 45,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 17,
@@ -133,7 +261,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 6.5,
     qtStock: 30,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 18,
@@ -141,7 +277,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 3.6,
     qtStock: 70,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 19,
@@ -149,7 +293,15 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 5.0,
     qtStock: 55,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
   {
     idProduct: 20,
@@ -157,6 +309,14 @@ export const productList = [
     dsUrl: '/fanta.jpg',
     vlPrice: 4.0,
     qtStock: 60,
-    dsBrand: 'Coca Cola',
+    brand: {
+      idBrand: 'coca-cola',
+      dsBrand: 'Coca Cola',
+    },
+    country: {
+      idCountry: 'brazil',
+      dsCountry: 'Brasil',
+    },
+    category: 'drink',
   },
 ];
