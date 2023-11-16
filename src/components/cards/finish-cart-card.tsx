@@ -64,9 +64,7 @@ export default function FinishCartCard({
             href="/finalizar"
             onClick={() =>
               setNewProductFinishListByIdList(
-                selectedProducts.length
-                  ? selectedProducts
-                  : productCartList.map((item) => item.idProduct),
+                productCartList.map((item) => item.idProduct),
               )
             }
           >
@@ -76,10 +74,8 @@ export default function FinishCartCard({
           {Boolean(selectedProducts.length) && (
             <>
               <Divider className="my-2" />
-              
-              <p className="text-xl ">
-                Produtos selecionados
-              </p>
+
+              <p className="text-xl ">Produtos selecionados</p>
 
               <p className="text-lg ">
                 Subtotal:{' '}
@@ -95,6 +91,9 @@ export default function FinishCartCard({
                   className=" text-white font-medium flex-1"
                   as={Link}
                   href="/finalizar"
+                  onClick={() =>
+                    setNewProductFinishListByIdList(selectedProducts)
+                  }
                 >
                   Finalizar produtos
                 </Button>
