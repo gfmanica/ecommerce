@@ -78,7 +78,7 @@ export default function Produtos({
   }, [price, countries, brands, categories]);
 
   return (
-    <PageContent className="flex flex-col mds:flex-row items-start px-2 mb-8 gap-4 ">
+    <PageContent className="flex flex-col md:flex-row items-start px-2 mb-8 gap-4 ">
       <Card className="flex-[3] p-2 w-full md:sticky top-2">
         <CardBody className="flex flex-col gap-2">
           <p className="text-2xl font-semibold">Filtros</p>
