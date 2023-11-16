@@ -38,7 +38,7 @@ export default function Produto({ params }: TProduto) {
       <div className="flex flex-col py-8">
         <p className="text-2xl">{product.dsProduct}</p>
 
-        <p>Marca {product.dsBrand}</p>
+        <p>Marca {product.brand.dsBrand}</p>
 
         <Divider className="my-2" />
 
