@@ -1,4 +1,5 @@
 'use client';
+
 import {
   Button,
   Card,
@@ -12,7 +13,7 @@ import { productList } from '@/utils/produtos';
 import ProductCard from '@/components/cards/product-card';
 import PageContent from '@/components/page-content';
 import useBreakpoint from '@/hooks/use-breakpoint';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { TProduct } from '@/types';
 
 const category = [
@@ -46,7 +47,7 @@ export default function Produtos({
     [],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let newFilteredProductList = productList;
 
     if (searchParams?.search) {
@@ -84,7 +85,7 @@ export default function Produtos({
     }
 
     setFilteredProductList(newFilteredProductList);
-  }, [price, countries, brands, categories, searchParams?.search]);
+  }, [price, countries, brands, categories, searchParams]);
 
   return (
     <PageContent className="flex flex-col md:flex-row items-start px-2 mb-8 gap-4 ">
