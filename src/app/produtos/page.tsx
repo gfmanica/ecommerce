@@ -50,7 +50,8 @@ export default function Produtos({
   useLayoutEffect(() => {
     let newFilteredProductList = productList;
 
-    debugger;
+    console.log(searchParams?.search);
+    
     if (searchParams?.search) {
       newFilteredProductList = newFilteredProductList.filter(
         (item) =>
