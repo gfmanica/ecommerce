@@ -15,17 +15,17 @@ export default function ProductCard({ product }: TProductCard) {
       as={Link}
       href={`/produtos/${product.idProduct}`}
     >
-      <CardBody className="flex flex-col p-4">
-        <Image
-          alt="Album cover"
-          height={200}
-          src={product.dsUrl}
-          width="100%"
-        />
-        <p className="text-2xl">{product.dsProduct}</p>
-        <p className="text-primary-400 font-semibold">
-          {money(product.vlPrice)}
-        </p>
+      <CardBody className="flex flex-col justify-between gap-2 p-4">
+        <div className="flex justify-center">
+          <Image className="h-60" alt={product.dsProduct} src={product.dsUrl} />
+        </div>
+
+        <div>
+          <p className="text-lg">{product.dsProduct}</p>
+          <p className="text-primary-400 font-semibold">
+            {money(product.vlPrice)}
+          </p>
+        </div>
       </CardBody>
     </Card>
   );

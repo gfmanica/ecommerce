@@ -13,7 +13,7 @@ export default function Navbar() {
   const { productCart } = useNavbarContext();
 
   return (
-    <div className="bg-slate-200 gap-2 flex flex-col items-center rounded-2xl mt-2 md:mb-8 mx-2 md:px-12 p-3  shadow-md">
+    <div className="bg-gradient-to-r from-sky-100 to-indigo-100 gap-2 flex flex-col items-center rounded-2xl mt-2 md:mb-8 mx-2 md:px-12 p-3  shadow-md">
       <div className="w-full flex items-center justify-between">
         <Link href="/">
           <p className="font-semibold text-lg">Ecommerce</p>
@@ -44,9 +44,8 @@ export default function Navbar() {
               <div className="flex gap-4 items-center p-1">
                 <Image
                   alt="Produto"
-                  width={50}
                   src={productCart?.dsUrl}
-                  className="sticky top-1"
+                  className="sticky top-1 w-8"
                 />
                 <div className="max-w-[150px]">
                   <p>
@@ -70,7 +69,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isDownMd && <SearchField className="w-full"/>}
+      {isDownMd && <SearchField className="w-full" />}
     </div>
   );
 }

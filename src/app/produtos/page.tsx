@@ -26,11 +26,16 @@ const country = [
   { value: 'brazil', label: 'Brasil' },
   { value: 'argentina', label: 'Argentina' },
   { value: 'japan', label: 'Japão' },
+  { value: 'canada', label: 'Canadá' },
 ];
 
 const brand = [
   { value: 'coca-cola', label: 'Coca Cola' },
-  { value: 'havana', label: 'Havana' },
+  { value: 'havanna', label: 'Havanna' },
+  { value: 'kanro', label: 'Kanro' },
+  { value: 'kizakura', label: 'Kizakura' },
+  { value: 'hungry-jack', label: 'Hungry Jack' },
+  { value: 'doces-da-serra', label: 'Doces da Serra' },
 ];
 
 export default function Produtos() {
@@ -46,8 +51,6 @@ export default function Produtos() {
 
   useLayoutEffect(() => {
     let newFilteredProductList = productList;
-
-    console.log(search);
 
     if (search) {
       newFilteredProductList = newFilteredProductList.filter(

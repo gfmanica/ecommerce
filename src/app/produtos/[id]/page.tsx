@@ -28,10 +28,8 @@ export default function Produto({ params }: TProduto) {
       <div className="flex justify-center">
         <Image
           alt="Produto"
-          height={200}
           src={product.dsUrl}
-          width="500"
-          className="sticky md:static top-1"
+          className="sticky md:static top-1 h-[500px]"
         />
       </div>
 

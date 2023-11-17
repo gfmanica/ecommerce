@@ -57,11 +57,11 @@ export default function ProductCartCard({
                   }
                 />
 
-                <div className="flex flex-1 md:flex-none gap-4 flex-row-reverse md:flex-row">
-                  <Image alt="Album cover" width={50} src={product.dsUrl} />
+                <div className="flex flex-1 md:flex-none gap-4  flex-row-reverse md:flex-row items-center">
+                  <Image alt={product.dsProduct} width={40} src={product.dsUrl} />
 
                   <div className="flex items-center w-36 break-words mr-auto">
-                    <p className="text-lg">{product.dsProduct}</p>
+                    <p className="text-base">{product.dsProduct}</p>
                   </div>
                 </div>
               </div>
