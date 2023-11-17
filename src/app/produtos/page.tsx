@@ -15,6 +15,7 @@ import PageContent from '@/components/page-content';
 import useBreakpoint from '@/hooks/use-breakpoint';
 import { useLayoutEffect, useState } from 'react';
 import { TProduct } from '@/types';
+import { useSearchParams } from 'next/navigation';
 
 const category = [
   { value: 'drink', label: 'Bebidas' },
@@ -32,13 +33,7 @@ const brand = [
   { value: 'havana', label: 'Havana' },
 ];
 
-export default function Produtos({
-  searchParams,
-}: {
-  searchParams?: {
-    search?: string;
-  };
-}) {
+export default function Produtos() {
   const [price, setPrice] = useState<SliderValue>([0, 50]);
   const [categories, setCategories] = useState<string[]>([]);
   const [countries, setCountries] = useState<string[]>([]);
@@ -46,19 +41,18 @@ export default function Produtos({
   const [filteredProductList, setFilteredProductList] = useState<TProduct[]>(
     [],
   );
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search');
 
   useLayoutEffect(() => {
     let newFilteredProductList = productList;
 
-    console.log(searchParams?.search);
-    
-    if (searchParams?.search) {
+    console.log(search);
+
+    if (search) {
       newFilteredProductList = newFilteredProductList.filter(
         (item) =>
-          searchParams?.search &&
-          item.dsProduct
-            .toLowerCase()
-            .includes(searchParams?.search.toLowerCase()),
+          search && item.dsProduct.toLowerCase().includes(search.toLowerCase()),
       );
     }
 
