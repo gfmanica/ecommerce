@@ -17,7 +17,7 @@ export default function ProductCard({ product }: TProductCard) {
     >
       <CardBody className="flex flex-col justify-between gap-2 p-4">
         <div className="flex justify-center">
-          <Image className="h-60" alt={product.dsProduct} src={product.dsUrl} />
+          <Image className="h-36 md:h-60" alt={product.dsProduct} src={product.dsUrl} />
         </div>
 
         <div>
