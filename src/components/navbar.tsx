@@ -37,51 +37,53 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 md:gap-4">
           {!isDownMd && (
-            <div className="flex gap-4">
-              <SearchField />
+            <>
+              <div className="flex gap-4">
+                <SearchField />
 
-              <Divider orientation="vertical" className="h-auto" />
-            </div>
-          )}
-
-          <Button
-            as={Link}
-            href="/produtos"
-            variant="shadow"
-            color="secondary"
-            size="md"
-          >
-            Produtos
-          </Button>
-          <Tooltip
-            showArrow
-            isOpen={Boolean(productCart)}
-            content={
-              <div className="flex gap-4 items-center p-1">
-                <Image
-                  alt="Produto"
-                  src={productCart?.dsUrl}
-                  className="sticky top-1 w-8"
-                />
-                <div className="max-w-[150px]">
-                  <p>
-                    <strong>{productCart?.dsProduct}</strong> adicionado ao
-                    carrinho!
-                  </p>
-                </div>
+                <Divider orientation="vertical" className="h-auto" />
               </div>
-            }
-          >
-            <Button
-              as={Link}
-              href="/carrinho"
-              color="primary"
-              variant="shadow"
-              startContent={<AiOutlineShoppingCart size={20} />}
-            >
-              Carrinho
-            </Button>
-          </Tooltip>
+
+              <Button
+                as={Link}
+                href="/produtos"
+                variant="shadow"
+                color="secondary"
+                size="md"
+              >
+                Produtos
+              </Button>
+              <Tooltip
+                showArrow
+                isOpen={Boolean(productCart)}
+                content={
+                  <div className="flex gap-4 items-center p-1">
+                    <Image
+                      alt="Produto"
+                      src={productCart?.dsUrl}
+                      className="sticky top-1 w-8"
+                    />
+                    <div className="max-w-[150px]">
+                      <p>
+                        <strong>{productCart?.dsProduct}</strong> adicionado ao
+                        carrinho!
+                      </p>
+                    </div>
+                  </div>
+                }
+              >
+                <Button
+                  as={Link}
+                  href="/carrinho"
+                  color="primary"
+                  variant="shadow"
+                  startContent={<AiOutlineShoppingCart size={20} />}
+                >
+                  Carrinho
+                </Button>
+              </Tooltip>
+            </>
+          )}
 
           <Popover
             placement="bottom-end"
@@ -94,23 +96,62 @@ export default function Navbar() {
               </Button>
             </PopoverTrigger>
             <PopoverContent className="px-1">
-              <Listbox variant="faded" aria-label="Listbox menu with icons">
-                <ListboxItem
-                  key="new"
-                  startContent={<AiOutlineInbox size={15} />}
-                >
-                  Meus pedidos
-                </ListboxItem>
-                <ListboxItem
-                  as={Link}
-                  href="/faq"
-                  key="new"
-                  onClick={() => setIsOpenMenu(!isOpenMenu)}
-                  startContent={<AiOutlineQuestionCircle size={15} />}
-                >
-                  FAQ
-                </ListboxItem>
-              </Listbox>
+              {isDownMd ? (
+                <Listbox variant="faded" aria-label="Listbox menu with icons">
+                  <ListboxItem
+                    key="produto"
+                    as={Link}
+                    href="/produtos"
+                    onClick={() => setIsOpenMenu(!isOpenMenu)}
+                    startContent={<AiOutlineInbox size={15} />}
+                  >
+                    Produtos
+                  </ListboxItem>
+                  <ListboxItem
+                    as={Link}
+                    href="/carrinho"
+                    key="carrinho"
+                    onClick={() => setIsOpenMenu(!isOpenMenu)}
+                    startContent={<AiOutlineShoppingCart size={15} />}
+                  >
+                    Carrinho
+                  </ListboxItem>
+                  <ListboxItem
+                    key="pedido"
+                    onClick={() => setIsOpenMenu(!isOpenMenu)}
+                    startContent={<AiOutlineInbox size={15} />}
+                  >
+                    Meus pedidos
+                  </ListboxItem>
+                  <ListboxItem
+                    as={Link}
+                    href="/faq"
+                    key="faq"
+                    onClick={() => setIsOpenMenu(!isOpenMenu)}
+                    startContent={<AiOutlineQuestionCircle size={15} />}
+                  >
+                    FAQ
+                  </ListboxItem>
+                </Listbox>
+              ) : (
+                <Listbox variant="faded" aria-label="Listbox menu with icons">
+                  <ListboxItem
+                    key="new"
+                    startContent={<AiOutlineInbox size={15} />}
+                  >
+                    Meus pedidos
+                  </ListboxItem>
+                  <ListboxItem
+                    as={Link}
+                    href="/faq"
+                    key="new"
+                    onClick={() => setIsOpenMenu(!isOpenMenu)}
+                    startContent={<AiOutlineQuestionCircle size={15} />}
+                  >
+                    FAQ
+                  </ListboxItem>
+                </Listbox>
+              )}
             </PopoverContent>
           </Popover>
         </div>
