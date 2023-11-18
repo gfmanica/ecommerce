@@ -8,7 +8,17 @@ import useProductFinishList from '@/hooks/use-product-finish-list';
 import { TProduct } from '@/types';
 import { money } from '@/utils/format';
 import { productList } from '@/utils/produtos';
-import { Button, Card, Divider, Image, Input } from '@nextui-org/react';
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  Image,
+  Input,
+  Textarea,
+} from '@nextui-org/react';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
@@ -84,6 +94,51 @@ export default function Produto({ params }: TProduto) {
               <p>em até 7 dias depois de receber o produto.</p>
             </div>
           </Card>
+
+          <p className="text-2xl mt-4">Comentários</p>
+
+          <Card>
+            <CardHeader className="flex gap-2">
+              <Avatar radius="full" />
+              <p>Cátia Santos</p>
+            </CardHeader>
+            <CardBody className="pt-0">
+              <p>
+                Adorei esse {product.dsProduct}. E só me custou{' '}
+                {money(product.vlPrice)}. Muito barato e muito bom ameiii!!!
+              </p>
+            </CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex gap-2">
+              <Avatar radius="full" />
+              <p>Jorge Paz</p>
+            </CardHeader>
+            <CardBody className="pt-0">
+              <p>
+                Produto bão demais. E só me custou {money(product.vlPrice)}.
+                Muito barato.
+              </p>
+            </CardBody>
+          </Card>
+
+          <div className="flex flex-col gap-2 mt-4">
+            <p>Adicionar comentário</p>
+
+            <Textarea />
+
+            <div className="flex justify-end">
+              <Button
+                variant="shadow"
+                color="success"
+                size="sm"
+                className=" text-white font-medium"
+              >
+                Adicionar
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </PageContent>
