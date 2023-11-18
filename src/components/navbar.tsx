@@ -2,18 +2,34 @@
 
 import { useNavbarContext } from '@/contexts/navbar-context';
 import useBreakpoint from '@/hooks/use-breakpoint';
-import { Button, Divider, Image, Input, Tooltip } from '@nextui-org/react';
+import {
+  Button,
+  Divider,
+  Image,
+  Input,
+  Listbox,
+  ListboxItem,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Tooltip,
+} from '@nextui-org/react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import SearchField from './fields/search-field';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineInbox } from 'react-icons/ai';
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import { useState } from 'react';
 
 export default function Navbar() {
   const { isDownMd } = useBreakpoint();
   const { productCart } = useNavbarContext();
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>();
 
   return (
-    <div className="bg-gradient-to-r from-sky-100 to-indigo-100 gap-2 flex flex-col items-center rounded-2xl mt-2 md:mb-8 mx-2 md:px-12 p-3  shadow-md">
+    <div className="bg-gradient-to-r from-sky-100 to-indigo-100 gap-2 flex flex-col items-center rounded-2xl mt-2 mb-4 md:mb-8 mx-2 md:px-12 p-3  shadow-md">
       <div className="w-full flex items-center justify-between">
         <Link href="/">
           <p className="font-semibold text-lg">Ecommerce</p>
@@ -66,6 +82,37 @@ export default function Navbar() {
               Carrinho
             </Button>
           </Tooltip>
+
+          <Popover
+            placement="bottom-end"
+            isOpen={isOpenMenu}
+            onOpenChange={(open) => setIsOpenMenu(open)}
+          >
+            <PopoverTrigger>
+              <Button isIconOnly variant="light">
+                <AiOutlineMenu size={20} />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="px-1">
+              <Listbox variant="faded" aria-label="Listbox menu with icons">
+                <ListboxItem
+                  key="new"
+                  startContent={<AiOutlineInbox size={15} />}
+                >
+                  Meus pedidos
+                </ListboxItem>
+                <ListboxItem
+                  as={Link}
+                  href="/faq"
+                  key="new"
+                  onClick={() => setIsOpenMenu(!isOpenMenu)}
+                  startContent={<AiOutlineQuestionCircle size={15} />}
+                >
+                  FAQ
+                </ListboxItem>
+              </Listbox>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 

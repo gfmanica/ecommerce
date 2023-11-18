@@ -11,7 +11,7 @@ export default function Home() {
         alt="banner"
         width="100%"
         height={400}
-        className="max-h-[400px] rounded-none mt-4 md:mt-0"
+        className="max-h-[400px] rounded-none my-4 md:mt-0"
       />
 
       <PageContent>
