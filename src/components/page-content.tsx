@@ -8,7 +8,7 @@ type TPageContent = {
 
 export default function PageContent({ children, className }: TPageContent) {
   return (
-    <div className={cn('px-2 lg:px-20 xl:px-32 mb-4', className)}>
+    <div className={cn('px-6 lg:px-20 xl:px-32 mb-4', className)}>
       {children}
     </div>
   );
