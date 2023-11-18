@@ -10,3 +10,8 @@ export type TProduct = {
 export type TProductCart = TProduct & {
   qtProduct: number;
 };
+
+export type TProductTrack = TProductCart & {
+  dsStatus: string;
+  dtOrder: string;
+};

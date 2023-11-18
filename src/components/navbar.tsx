@@ -118,6 +118,8 @@ export default function Navbar() {
                   </ListboxItem>
                   <ListboxItem
                     key="pedido"
+                    as={Link}
+                    href="/pedidos"
                     onClick={() => setIsOpenMenu(!isOpenMenu)}
                     startContent={<AiOutlineInbox size={15} />}
                   >
@@ -137,6 +139,8 @@ export default function Navbar() {
                 <Listbox variant="faded" aria-label="Listbox menu with icons">
                   <ListboxItem
                     key="new"
+                    as={Link}
+                    href="/pedidos"
                     startContent={<AiOutlineInbox size={15} />}
                   >
                     Meus pedidos
