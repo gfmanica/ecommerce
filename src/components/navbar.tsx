@@ -15,7 +15,6 @@ import {
   Tooltip,
 } from '@nextui-org/react';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import SearchField from './fields/search-field';
 import { AiOutlineMenu } from 'react-icons/ai';
@@ -32,7 +31,7 @@ export default function Navbar() {
     <div className="bg-gradient-to-r from-sky-100 to-indigo-100 gap-2 flex flex-col items-center rounded-2xl mt-2 mb-4 md:mb-8 mx-2 md:px-12 p-3  shadow-md">
       <div className="w-full flex items-center justify-between">
         <Link href="/">
-          <p className="font-semibold text-lg">Ecommerce</p>
+          <p className="font-semibold text-lg hover:scale-125 transition duration-500">Ecommerce</p>
         </Link>
 
         <div className="flex items-center gap-2 md:gap-4">
