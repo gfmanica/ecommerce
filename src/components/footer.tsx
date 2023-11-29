@@ -8,7 +8,7 @@ export default function Footer() {
         Telefone para suporte:
         <strong> (46) 98406-6636</strong> <br />
         Email para suporte:{' '}
-        <strong>gabrielfelipemanica@alunos.utfpr.edu.br</strong>
+        <strong>tastehorizon@alunos.utfpr.edu.br</strong>
       </p>
     </div>
   );
